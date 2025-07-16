@@ -1,0 +1,28 @@
+//Program to read java numbers?
+import java.util.Scanner;
+public class exe4 {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the first number:");
+		int start=sc.nextInt();
+		
+		System.out.println("Enter the limit:");
+		int end=sc.nextInt();
+		
+		if(start<=end)
+		{
+			for(int i=start;i<=end;i=i+2)
+			{
+			System.out.print(i + " ");
+			}
+			System.out.println();
+		}
+		else
+		{
+			System.out.println("Invalid");
+			
+		}
+		sc.close();
+	}
+
+}
