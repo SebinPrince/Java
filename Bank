@@ -1,0 +1,28 @@
+package cseb;
+
+class Payment{
+	public void makepayment(String cardNumber,String expiryDate,String cvv) {
+	System.out.println("Credit card payment");
+	System.out.println("Transation Succesfully");
+}
+	public void makepayment(String upiID) {
+		System.out.println("UPI payment");
+		System.out.println("Transation Succesfully");
+}
+	public void makepayment(double amount) {
+		System.out.println("Cash on Delivery");
+		System.out.println("Transation Succesfully");
+	}
+
+public class ECommerceApp {
+	public static void main(String[] args) {
+		Payment sc=new Payment(){
+		System.out.println("1234 5678 9101","12/26","654");
+		System.out.println("user@upi");
+		System.out.println("200");
+
+	}
+}
+
+
+}
