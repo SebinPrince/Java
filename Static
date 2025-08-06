@@ -12,7 +12,7 @@ class Student{
 	}
 }
 
-public class Studentdata {
+public class StudentCount {
 	public static void main(String[] args) {
 		
 		Student s1=new Student("Sebin");
@@ -20,7 +20,8 @@ public class Studentdata {
 		Student s3=new Student("Jacob");
 
 		
-		System.out.println("Total number of students:"+Student.StudentCount);
+		System.out.println("Total number of students:"+Student.getStudentCount());
 
 	}
 }
+
