@@ -1,0 +1,52 @@
+package j_swing;
+
+import javax.swing.*;
+import java.awt.*;
+
+public class j_newswdemo {
+    public static void main(String[] args) {
+        JFrame mainFrame = new JFrame("My First GUI");
+        mainFrame.setSize(400, 350);
+        mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridLayout(5, 2, 10, 10));
+
+        JLabel userLabel = new JLabel("Username:");
+        JTextField userField = new JTextField();
+
+        JLabel emailLabel = new JLabel("Email:");
+        JTextField emailField = new JTextField();
+
+        JLabel genderLabel = new JLabel("Gender:");
+        JPanel genderPanel = new JPanel();
+        JRadioButton male = new JRadioButton("Male");
+        JRadioButton female = new JRadioButton("Female");
+        ButtonGroup genButtonGroup = new ButtonGroup();
+        genButtonGroup.add(male);
+        genButtonGroup.add(female);
+        genderPanel.add(male);
+        genderPanel.add(female);
+
+        JLabel countryLabel = new JLabel("Country:");
+        String[] countries = {"Select", "India", "USA", "UK", "Canada", "Australia"};
+        JComboBox<String> countryBox = new JComboBox<>(countries);
+
+        JButton submitBtn = new JButton("Submit");
+
+        panel.add(userLabel);
+        panel.add(userField);
+        panel.add(emailLabel);
+        panel.add(emailField);
+        panel.add(genderLabel);
+        panel.add(genderPanel);
+        panel.add(countryLabel);
+        panel.add(countryBox);
+        panel.add(new JLabel());
+        panel.add(submitBtn);
+
+        mainFrame.add(panel);
+        mainFrame.setLocationRelativeTo(null);
+        mainFrame.setVisible(true);
+    }
+}
