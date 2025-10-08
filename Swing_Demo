@@ -1,0 +1,50 @@
+import javax.swing.*;
+import java.awt.*;
+
+public class Swing_Demo{
+    public static void main(String[] args){
+
+        JFrame mainFrame= new JFrame("My first GUI");
+        mainFrame.setSize(400,350);
+
+        JPanel panel=new JPanel();
+        panel.setLayout(new GridLayout(5,2,10,10));
+
+        JLabel Label=new JLabel("Username");
+        JTextField userField=new JTextField();
+
+        JLabel emailLabel=new JLabel();
+        JTextField emailField=new JTextField();
+
+        JLabel genderLabel=new JLabel("Gender");
+        JPanel genderpanel=new JPanel();
+        JRadioButton male=new JRadioButton("Male");
+        JRadioButton female=new JRadioButton("Female");
+        ButtonGroup genButtonGroup=new ButtonGroup();
+        genButtonGroup.add(male);
+        genButtonGroup.add(female);
+        genderpanel.add(male);
+        genderpanel.add(female);
+
+        JLabel countryLabel=new JLabel("Country");
+        String[] countries={"Select","India","USA","Australia","Japan"};
+        JComboBox<String> countryBox = new JComboBox<>(countries);
+
+        JButton submitbutton=new JButton("Submit");
+
+        panel.add(Label);
+        panel.add(userField);
+        panel.add(emailLabel);
+        panel.add(emailField);
+        panel.add(genderLabel);
+        panel.add(genderpanel);
+        panel.add(countryLabel);
+        panel.add(countryBox);
+        panel.add(new JLabel());
+        panel.add(submitbutton);
+
+        mainFrame.add(panel);
+        mainFrame.setLocationRelativeTo(null);
+        mainFrame.setVisible(true);
+    }
+}
