@@ -1,4 +1,5 @@
 import java.sql.Connection;
+import java.sql.DriverManager;
 
 import com.mysql.cj.xdevapi.Statement;
 
@@ -9,10 +10,7 @@ public class GUI_Demo {
 	
 	static final String USER="admin";
 	static final String PWD="123";
-	
-	
-			
-	
+
 
 	public static void main(String[] args) {
 		Connection con=null;
@@ -21,7 +19,19 @@ public class GUI_Demo {
 			//register JDBC driver
 			Class.forname(JDBC_DRIVER);
 			
+			System.out.println("Connecting to database");
+			con=DriverManager.getConnection(DB_URL,USER,PWD);
+			
+			System.out.println("Creating database");
+			statement =con.createStatement();
+			
+			String sql ="create database student25";
+			boolean result=statement.execute(sql);
+			System.out.println(result);
+			System.out.println("Database created successfully");
 		}
+		
+		
 		catch(SOLException e) {
 			System.out.println(e.getmessage());
 			
