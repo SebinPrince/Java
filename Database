@@ -1,0 +1,36 @@
+import java.sql.Connection;
+
+import com.mysql.cj.xdevapi.Statement;
+
+public class GUI_Demo {
+	
+	static final String JDBS_Driver="com.mysql.jdbc.Driver";
+	static final String DB_URL="jdbc;mysql;//localhost;3306/";
+	
+	static final String USER="admin";
+	static final String PWD="123";
+	
+	
+			
+	
+
+	public static void main(String[] args) {
+		Connection con=null;
+		Statement statement=null;
+		try {
+			//register JDBC driver
+			Class.forname(JDBC_DRIVER);
+			
+		}
+		catch(SOLException e) {
+			System.out.println(e.getmessage());
+			
+		}
+		catch(ClassNotFoundException e) {
+			System.out.println(e.getmessage());
+		}
+		
+		
+	}
+
+}
