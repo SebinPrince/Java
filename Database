@@ -1,46 +1,44 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
-
-import com.mysql.cj.xdevapi.Statement;
+import java.sql.Statement;
+import java.sql.SQLException;
 
 public class GUI_Demo {
-	
-	static final String JDBS_Driver="com.mysql.jdbc.Driver";
-	static final String DB_URL="jdbc;mysql;//localhost;3306/";
-	
-	static final String USER="admin";
-	static final String PWD="123";
 
+    static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
+    static final String DB_URL = "jdbc:mysql://localhost:3306/";
+    static final String USER = "Sebin";
+    static final String PWD = "123";
 
-	public static void main(String[] args) {
-		Connection con=null;
-		Statement statement=null;
-		try {
-			//register JDBC driver
-			Class.forname(JDBC_DRIVER);
-			
-			System.out.println("Connecting to database");
-			con=DriverManager.getConnection(DB_URL,USER,PWD);
-			
-			System.out.println("Creating database");
-			statement =con.createStatement();
-			
-			String sql ="create database student25";
-			boolean result=statement.execute(sql);
-			System.out.println(result);
-			System.out.println("Database created successfully");
-		}
-		
-		
-		catch(SOLException e) {
-			System.out.println(e.getmessage());
-			
-		}
-		catch(ClassNotFoundException e) {
-			System.out.println(e.getmessage());
-		}
-		
-		
-	}
+    public static void main(String[] args) {
+        Connection con = null;
+        Statement statement = null;
 
+        try {
+            // Register JDBC driver
+            Class.forName(JDBC_DRIVER);
+
+            System.out.println("Connecting to database...");
+            con = DriverManager.getConnection(DB_URL, USER, PWD);
+
+            System.out.println("Creating database...");
+            statement = con.createStatement();
+
+            String sql = "CREATE DATABASE student25";
+            boolean result = statement.execute(sql);
+            System.out.println("Database created successfully: " + !result); // result is false if DDL success
+
+        } catch (SQLException e) {
+            System.out.println("SQL Exception: " + e.getMessage());
+        } catch (ClassNotFoundException e) {
+            System.out.println("Class Not Found: " + e.getMessage());
+        } finally {
+            try {
+                if (statement != null) statement.close();
+                if (con != null) con.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }
